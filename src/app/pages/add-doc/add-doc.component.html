@@ -1,1 +1,19 @@
-<p>add-doc works!</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
+
+<form class="add_doc_container">
+    <section class="input_section">
+        <div class="dropzone" appDnd (fileDropped)="onFileDropped($event)">
+            <input type="file" (change)="fileBrowseHandler($event.target)" />
+            <mat-icon class="upload_icon" fontSet="material-icons-outlined">cloud_upload</mat-icon>
+            <h3>Drag and drop file here</h3>
+            <h3>or</h3>
+            <button mat-flat-button color="primary" for="fileDropRef">Browse for file</button>
+        </div>
+
+        <input type="text" />
+    </section>
+    <section class="button_section">
+        <button type="submit" mat-flat-button color="primary" class="submit_button">submit</button>
+        <button mat-flat-button color="warn" class="cancel_button">cancel</button>
+    </section>
+</form>
