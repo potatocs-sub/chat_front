@@ -23,7 +23,8 @@
 
     .dropzone {
         display: flex;
-        border: 2px solid $main_color;
+        border: 1px solid $main_color;
+        background-color: white;
         border-radius: 0.5rem;
         height: 300px;
         justify-content: center;
