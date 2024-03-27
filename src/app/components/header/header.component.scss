@@ -1,0 +1,16 @@
+header {
+    width: 100%;
+    background-color: rgba(0, 21, 79, 255);
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
