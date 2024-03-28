@@ -12,13 +12,51 @@ import { RouterModule } from '@angular/router';
   styleUrl: './add-doc.component.scss'
 })
 export class AddDocComponent {
+
+  files: any[] = [];
+
   // on file drop handler
   onFileDropped($event: any) {
     console.log($event)
+    this.prepareFileList($event)
+
   }
 
   // handle file from browsing
   fileBrowseHandler(target: any) {
     console.log(target.files)
+    this.prepareFileList(target.files)
+  }
+
+  // delete file from files list
+  deleteFile(index: number) {
+    this.files.splice(index, 1)
+  }
+
+  // submit file and company name
+  submit() {
+
+  }
+
+
+  // prepare file list
+  prepareFileList(files: Array<any>) {
+    for (const item of files) {
+      item.pogress = 0;
+      this.files.push(item);
+    }
+  }
+
+  // format bytes
+  formatBytes(bytes: any, decimals: any = 0) {
+    if (bytes == 0) {
+      return '0 Bytes';
+    }
+
+    const k = 1024;
+    const dm = decimals <= 0 ? 0 : decimals || 2;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 }
