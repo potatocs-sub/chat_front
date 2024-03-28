@@ -1,12 +1,13 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" />
 
-<form class="add_doc_container">
+<form class="add_doc_container" (ngSubmit)="submit()">
     <section class="input_section">
 
 
         <h2 class="title">Document registration</h2>
 
-        <input id="company" name="company" type="text" placeholder="enter your company name" />
+        <input [(ngModel)]="company" type="text" placeholder="enter your company name" required
+            [ngModelOptions]="{standalone: true}" />
 
 
         <div class="dropzone" appDnd (fileDropped)="onFileDropped($event)">
@@ -19,14 +20,14 @@
 
 
 
-        @for(file of files; track file) {
+        @for(file of files; track file;let i = $index) {
         <div class="single_file">
             <section class="file_info_section">
                 <h4>{{file?.name}}</h4>
                 <p>{{ formatBytes(file?.size) }}</p>
             </section>
             <section class="file_button_section">
-                <button mat-icon-button><mat-icon>delete_forever</mat-icon></button>
+                <button (click)="deleteFile(i)" mat-icon-button><mat-icon>delete_forever</mat-icon></button>
             </section>
         </div>
         }

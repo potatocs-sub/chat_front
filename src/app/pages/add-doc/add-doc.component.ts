@@ -4,15 +4,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { DndDirective } from '../../directives/dnd.directive';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-add-doc',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatIconModule, DndDirective, RouterModule],
+  imports: [CommonModule, MatButtonModule, MatIconModule, DndDirective, RouterModule, FormsModule],
   templateUrl: './add-doc.component.html',
   styleUrl: './add-doc.component.scss'
 })
 export class AddDocComponent {
-
+  company: string = '';
   files: any[] = [];
 
   // on file drop handler
@@ -35,7 +36,7 @@ export class AddDocComponent {
 
   // submit file and company name
   submit() {
-
+    console.log(this.company, this.files)
   }
 
 
