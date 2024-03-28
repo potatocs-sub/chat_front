@@ -18,14 +18,14 @@ export class AddDocComponent {
 
   // on file drop handler
   onFileDropped($event: any) {
-    console.log($event)
+    // console.log($event)
     this.prepareFileList($event)
 
   }
 
   // handle file from browsing
   fileBrowseHandler(target: any) {
-    console.log(target.files)
+    // console.log(target.files)
     this.prepareFileList(target.files)
   }
 
