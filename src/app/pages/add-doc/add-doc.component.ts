@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { DndDirective } from '../../directives/dnd.directive';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ChatService } from '../../services/chat.service';
 @Component({
   selector: 'app-add-doc',
   standalone: true,
@@ -15,6 +16,10 @@ import { FormsModule } from '@angular/forms';
 export class AddDocComponent {
   company: string = '';
   files: any[] = [];
+
+  constructor(private chatService: ChatService) {
+
+  }
 
   // on file drop handler
   onFileDropped($event: any) {
@@ -37,6 +42,10 @@ export class AddDocComponent {
   // submit file and company name
   submit() {
     console.log(this.company, this.files)
+
+    this.chatService.addDocs(this.company, this.files).subscribe((res) => {
+      console.log(res);
+    })
   }
 
 
