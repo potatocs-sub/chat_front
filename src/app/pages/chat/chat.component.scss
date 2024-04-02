@@ -1,9 +1,28 @@
 .chat_container {
     display: flex;
     flex-direction: column;
-    flex: 1;
+
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 
     .chat_section {
         flex: 1;
+        display: flex;
+    }
+
+    .input_section {
+        display: flex;
+        gap: 0.5rem;
+
+
+        .company_input {}
+
+        .question_input {
+            flex: 1;
+        }
+
+        .submit_button {}
     }
 }
