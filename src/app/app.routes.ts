@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { ChatComponent } from './pages/chat/chat.component';
 import { AddDocComponent } from './pages/add-doc/add-doc.component';
 import { DocListComponent } from './pages/doc-list/doc-list.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 export const routes: Routes = [
     {
@@ -11,12 +12,14 @@ export const routes: Routes = [
     },
     {
         path: "add_doc",
-        title: 'add_doc',
-        component: AddDocComponent
-    }, {
-        path: "doc_list",
-        title: "doc_list",
-        component: DocListComponent
+        component: LayoutComponent,
+        children: [
+            {
+                path: '',
+                title: "add_doc",
+                component: AddDocComponent
+            }
+        ]
     }, {
         path: "*",
         redirectTo: '/'
