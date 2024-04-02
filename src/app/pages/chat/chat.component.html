@@ -1,4 +1,7 @@
 <div class="chat_container">
+    <section class="add_doc_section">
+        <button color="warn" class="add_doc_button" mat-flat-button [routerLink]="['add_doc']">add doc</button>
+    </section>
     <section class="chat_section">
         @for(chat of history; track chat) {
         <div [innerHTML]="chat"></div>

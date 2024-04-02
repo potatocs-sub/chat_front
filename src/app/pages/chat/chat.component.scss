@@ -12,6 +12,13 @@
     padding: 0 0.2rem;
     box-sizing: border-box;
 
+
+    .add_doc_section {
+        display: flex;
+        justify-content: end;
+        padding-top: 0.2rem;
+    }
+
     .chat_section {
         flex: 1;
         display: flex;
