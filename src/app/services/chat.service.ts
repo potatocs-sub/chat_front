@@ -25,7 +25,7 @@ export class ChatService {
 
 
   // 질문
-  ask(question: string) {
-    return this.http.post(this.baseUrl + `/chat`, question);
+  ask(question: string, history: Array<string>, company: string) {
+    return this.http.post(this.baseUrl + `/chat`, { question, history, company });
   }
 }

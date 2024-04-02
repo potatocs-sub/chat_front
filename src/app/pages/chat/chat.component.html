@@ -2,9 +2,11 @@
     <section class="chat_section">
 
     </section>
-    <form class="input_section">
-        <input class="company_input" placeholder="company" />
-        <input class="question_input" placeholder="question" />
-        <button class="submit_button" mat-icon-button color="primary"><mat-icon>send</mat-icon></button>
+    <form class="input_section" (ngSubmit)="submit()">
+        <input class="company_input" placeholder="company" [(ngModel)]="company"
+            [ngModelOptions]="{standalone: true}" />
+        <input class="question_input" placeholder="question" [(ngModel)]="qustion"
+            [ngModelOptions]="{standalone: true}" />
+        <button type="submit" class="submit_button" mat-icon-button color="primary"><mat-icon>send</mat-icon></button>
     </form>
 </div>
