@@ -9,6 +9,7 @@
             [ngModelOptions]="{standalone: true}" />
         <input class="question_input" placeholder="question" [(ngModel)]="qustion"
             [ngModelOptions]="{standalone: true}" />
-        <button type="submit" class="submit_button" mat-icon-button color="primary"><mat-icon>send</mat-icon></button>
+        <button [disabled]="waiting" type="submit" class="submit_button" mat-icon-button
+            color="primary"><mat-icon>send</mat-icon></button>
     </form>
 </div>

@@ -20,6 +20,8 @@ export class ChatComponent {
   qustion: string = ''; // 질문 
   company: string = 'nsmarts'; // 회사 
 
+  waiting: boolean = false;
+
   constructor(private chatService: ChatService) { }
 
 
@@ -27,10 +29,14 @@ export class ChatComponent {
    * 질문용 함수 
    */
   submit() {
+    if (this.waiting) return;
+
+    this.waiting = true;
     this.chatService.ask(this.qustion, this.history, this.company).subscribe((res: any) => {
       if (res.status) {
         this.history.push('<article class="answer">' + res.answer.kwargs.content + '</article>')
       }
+      this.waiting = false;
     })
     this.history.push('<article class="question">' + this.qustion + '</article>');
     this.qustion = '';
