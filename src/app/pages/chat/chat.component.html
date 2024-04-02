@@ -1,6 +1,8 @@
 <div class="chat_container">
     <section class="chat_section">
-
+        @for(chat of history; track chat) {
+        <div [innerHTML]="chat"></div>
+        }
     </section>
     <form class="input_section" (ngSubmit)="submit()">
         <input class="company_input" placeholder="company" [(ngModel)]="company"
