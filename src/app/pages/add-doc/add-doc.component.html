@@ -18,6 +18,10 @@
 
         <div class="dropzone" appDnd (fileDropped)="onFileDropped($event)">
             <input type="file" (change)="fileBrowseHandler($event.target)" multiple />
+            <!-- 
+                1. type="file": 파일 선택을 위한 입력 필드.
+                2. (change): 파일이 선택될 때 fileBrowseHandler($event.target) 메서드 호출.
+                3. multiple: 여러 파일을 동시에 선택 가능. -->
             <mat-icon class="upload_icon" fontSet="material-icons-outlined">cloud_upload</mat-icon>
             <h3>Drag and drop file here</h3>
             <h3>or</h3>
@@ -26,17 +30,35 @@
 
 
 
-        @for(file of files; track file;let i = $index) {
+        <!-- 파일 리스트 반복 출력 -->
+        @for(file of files; track file; let i = $index) {
+        <!-- 단일 파일을 나타내는 컨테이너 -->
         <div class="single_file">
+            <!-- 파일 정보 섹션 -->
             <section class="file_info_section">
                 <h4>{{file?.name}}</h4>
+                <!-- 
+                    1. {{file?.name}}: 파일의 이름을 출력. 
+                    2. 파일이 없는 경우(정의되지 않은 경우)를 대비해 안전 연산자 `?.` 사용. -->
                 <p>{{ formatBytes(file?.size) }}</p>
+                <!-- 
+                    1. {{ formatBytes(file?.size) }}: 파일 크기를 사람이 읽기 쉬운 형식으로 변환하여 출력. 
+                    2. formatBytes는 파일 크기 변환을 위한 메서드. -->
             </section>
+
+            <!-- 파일 삭제 버튼 섹션 -->
             <section class="file_button_section">
-                <button (click)="deleteFile(i)" mat-icon-button><mat-icon>delete_forever</mat-icon></button>
+                <button (click)="deleteFile(i)" mat-icon-button>
+                    <!-- 
+                        1. (click)="deleteFile(i)": 버튼 클릭 시 현재 파일의 인덱스를 기반으로 deleteFile(i) 메서드 호출.
+                        2. i는 $index로, 현재 파일의 반복 위치를 나타냄. -->
+                    <mat-icon>delete_forever</mat-icon>
+                    <!-- 삭제 아이콘 표시 -->
+                </button>
             </section>
         </div>
         }
+
 
     </section>
     <section class="button_section">
