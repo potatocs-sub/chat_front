@@ -11,11 +11,17 @@
     </section>
 
     <form class="input_section" (ngSubmit)="submit()">
+        <!-- 회사 이름을 입력받는 입력 필드 -->
         <input class="company_input" placeholder="company" [(ngModel)]="company"
             [ngModelOptions]="{standalone: true}" />
+
+        <!-- 질문을 입력받는 입력 필드 -->
         <input class="question_input" placeholder="question" [(ngModel)]="qustion"
             [ngModelOptions]="{standalone: true}" />
+
+        <!-- 제출 버튼, 대기 중일 경우 비활성화 -->
         <button [disabled]="waiting" type="submit" class="submit_button" mat-icon-button
             color="primary"><mat-icon>send</mat-icon></button>
     </form>
+
 </div>
