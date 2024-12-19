@@ -19,7 +19,6 @@ export class ChatComponent {
     history: Array<any> = []; // 대화 내역 저장용 
     qustion: string = ''; // 질문 
     company: string = 'nsmarts'; // 회사 
-
     waiting: boolean = false;
 
     constructor(private chatService: ChatService) { }
