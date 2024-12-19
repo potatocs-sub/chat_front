@@ -8,6 +8,12 @@
 
         <input [(ngModel)]="company" type="text" placeholder="enter your company name" required
             [ngModelOptions]="{standalone: true}" />
+        <!-- 
+            1. [(ngModel)]="company": 양방향 데이터 바인딩으로 사용자가 입력한 회사 이름을 company 변수에 저장.
+            2. placeholder: "enter your company name"은 사용자가 입력해야 할 내용을 안내.
+            3. required: 필수 입력 필드임을 지정.
+            4. [ngModelOptions]: Angular Forms의 독립적인 ngModel 사용을 허용.
+        -->
 
 
         <div class="dropzone" appDnd (fileDropped)="onFileDropped($event)">
