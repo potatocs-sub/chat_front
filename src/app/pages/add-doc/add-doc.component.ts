@@ -50,8 +50,6 @@ export class AddDocComponent {
         })
     }
 
-
-
     // 파일 목록 준비
     prepareFileList(files: Array<any>) {
         for (const item of files) {
