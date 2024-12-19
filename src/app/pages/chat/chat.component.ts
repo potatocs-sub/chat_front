@@ -23,7 +23,6 @@ export class ChatComponent {
 
     constructor(private chatService: ChatService) { }
 
-
     submit() {
         // 이미 요청 중이라면 실행하지 않음
         if (this.waiting) return;
