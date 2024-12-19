@@ -32,8 +32,10 @@ export class ChatService {
 
 
 
-    // 질문
+    // 질문을 서버에 전송하는 함수
     ask(question: string, history: Array<string>, company: string) {
+        // HTTP POST 요청을 보내고 질문, 채팅 기록, 회사 정보를 포함
         return this.http.post(this.baseUrl + `/chat`, { question, history, company });
     }
+
 }
