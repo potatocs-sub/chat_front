@@ -3,10 +3,13 @@
         <button color="warn" class="add_doc_button" mat-flat-button [routerLink]="['add_doc']">add doc</button>
     </section>
     <section class="chat_section">
+        <!-- 채팅 기록을 반복하여 표시하는 섹션 -->
         @for(chat of history; track chat) {
+        <!-- 각 채팅 내용을 HTML로 삽입 -->
         <div [innerHTML]="chat"></div>
         }
     </section>
+
     <form class="input_section" (ngSubmit)="submit()">
         <input class="company_input" placeholder="company" [(ngModel)]="company"
             [ngModelOptions]="{standalone: true}" />
