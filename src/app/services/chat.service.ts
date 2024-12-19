@@ -2,30 +2,38 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ChatService {
-  private baseUrl = environment.apiUrl;
+    private baseUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-  // 문서 등록
-  addDocs(company: string, files: File[]) {
-    let formdata: FormData = new FormData();
-    console.log(company, files)
-    for (let file of files) {
+    // 문서 등록 함수
+    addDocs(company: string, files: File[]) {
+        // FormData 객체 생성
+        let formdata: FormData = new FormData();
+        // 회사 이름과 파일 목록을 콘솔에 출력
+        console.log(company, files);
 
-      formdata.append('files', file, file.name);
+        // 파일 배열을 반복하며 FormData에 파일 추가
+        for (let file of files) {
+            formdata.append('files', file, file.name);
+        }
+
+        // FormData 내용을 콘솔에 출력
+        console.log(formdata);
+        // 회사 이름을 FormData에 추가
+        formdata!.append('company', company);
+
+        // HTTP POST 요청을 보내고 결과 반환
+        return this.http.post(this.baseUrl + `/chat/add`, formdata);
     }
-    console.log(formdata)
-    formdata!.append('company', company);
-
-    return this.http.post(this.baseUrl + `/chat/add`, formdata);
-  }
 
 
-  // 질문
-  ask(question: string, history: Array<string>, company: string) {
-    return this.http.post(this.baseUrl + `/chat`, { question, history, company });
-  }
+
+    // 질문
+    ask(question: string, history: Array<string>, company: string) {
+        return this.http.post(this.baseUrl + `/chat`, { question, history, company });
+    }
 }
