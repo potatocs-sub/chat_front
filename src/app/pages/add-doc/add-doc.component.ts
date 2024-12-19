@@ -61,16 +61,17 @@ export class AddDocComponent {
     }
 
 
-    // format bytes
+    // 바이트를 사람이 읽기 쉬운 형식으로 변환
     formatBytes(bytes: any, decimals: any = 0) {
         if (bytes == 0) {
-            return '0 Bytes';
+            return '0 Bytes'; // 바이트 값이 0일 경우 "0 Bytes" 반환
         }
 
-        const k = 1024;
-        const dm = decimals <= 0 ? 0 : decimals || 2;
-        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-        const i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        const k = 1024; // 단위 변환 기준 (1 KB = 1024 Bytes)
+        const dm = decimals <= 0 ? 0 : decimals || 2; // 소수점 자리수 설정 (기본값: 2)
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']; // 단위 목록
+        const i = Math.floor(Math.log(bytes) / Math.log(k)); // 적절한 단위를 계산
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]; // 변환된 값과 단위를 반환
     }
+
 }
