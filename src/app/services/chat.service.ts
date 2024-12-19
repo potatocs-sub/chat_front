@@ -14,7 +14,7 @@ export class ChatService {
         // FormData 객체 생성
         let formdata: FormData = new FormData();
         // 회사 이름과 파일 목록을 콘솔에 출력
-        console.log(company, files);
+        // console.log(company, files);
 
         // 파일 배열을 반복하며 FormData에 파일 추가
         for (let file of files) {
