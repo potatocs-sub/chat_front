@@ -28,11 +28,12 @@ export class AddDocComponent {
         this.prepareFileList($event) // 드롭된 파일 목록을 준비
     }
 
-    // handle file from browsing
+    // 파일 탐색을 통해 선택한 파일 처리
     fileBrowseHandler(target: any) {
-        // console.log(target.files)
-        this.prepareFileList(target.files)
+        // console.log(target.files) // 선택한 파일 목록 출력 (디버깅 용도)
+        this.prepareFileList(target.files) // 선택한 파일 목록을 준비
     }
+
 
     // delete file from files list
     deleteFile(index: number) {
