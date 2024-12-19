@@ -21,11 +21,11 @@ export class AddDocComponent {
 
     }
 
-    // on file drop handler
-    onFileDropped($event: any) {
-        // console.log($event)
-        this.prepareFileList($event)
 
+    // 파일 드롭 이벤트 핸들러
+    onFileDropped($event: any) {
+        // console.log($event) // 이벤트 객체 출력 (디버깅 용도)
+        this.prepareFileList($event) // 드롭된 파일 목록을 준비
     }
 
     // handle file from browsing
