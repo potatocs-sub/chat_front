@@ -34,7 +34,6 @@ export class AddDocComponent {
         this.prepareFileList(target.files) // 선택한 파일 목록을 준비
     }
 
-
     // 파일 목록에서 파일 삭제
     deleteFile(index: number) {
         this.files.splice(index, 1) // 주어진 인덱스의 파일을 삭제
