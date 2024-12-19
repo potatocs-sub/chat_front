@@ -22,7 +22,7 @@ export class ChatService {
         }
 
         // FormData 내용을 콘솔에 출력
-        console.log(formdata);
+        // console.log(formdata);
         // 회사 이름을 FormData에 추가
         formdata!.append('company', company);
 
