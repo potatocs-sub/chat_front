@@ -60,7 +60,6 @@ export class AddDocComponent {
         }
     }
 
-
     // 바이트를 사람이 읽기 쉬운 형식으로 변환
     formatBytes(bytes: any, decimals: any = 0) {
         if (bytes == 0) {
