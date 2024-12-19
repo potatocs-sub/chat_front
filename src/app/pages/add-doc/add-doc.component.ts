@@ -18,9 +18,7 @@ export class AddDocComponent {
     files: any[] = [];
 
     constructor(private chatService: ChatService) {
-
     }
-
 
     // 파일 드롭 이벤트 핸들러
     onFileDropped($event: any) {
