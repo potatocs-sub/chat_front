@@ -52,13 +52,14 @@ export class AddDocComponent {
 
 
 
-    // prepare file list
+    // 파일 목록 준비
     prepareFileList(files: Array<any>) {
         for (const item of files) {
-            item.pogress = 0;
-            this.files.push(item);
+            item.progress = 0; // 파일의 진행 상태를 초기화 (기본값: 0)
+            this.files.push(item); // 파일을 files 배열에 추가
         }
     }
+
 
     // format bytes
     formatBytes(bytes: any, decimals: any = 0) {
