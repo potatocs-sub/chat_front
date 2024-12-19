@@ -35,19 +35,21 @@ export class AddDocComponent {
     }
 
 
-    // delete file from files list
+    // 파일 목록에서 파일 삭제
     deleteFile(index: number) {
-        this.files.splice(index, 1)
+        this.files.splice(index, 1) // 주어진 인덱스의 파일을 삭제
     }
 
-    // submit file and company name
+    // 파일과 회사 이름 제출
     submit() {
-        console.log(this.company, this.files)
+        console.log(this.company, this.files) // 회사 이름과 파일 목록 출력 (디버깅 용도)
 
+        // ChatService를 통해 파일과 회사 이름을 서버에 제출
         this.chatService.addDocs(this.company, this.files).subscribe((res) => {
-            console.log(res);
+            console.log(res); // 서버 응답 출력
         })
     }
+
 
 
     // prepare file list
