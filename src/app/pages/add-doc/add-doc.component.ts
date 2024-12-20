@@ -39,7 +39,7 @@ export class AddDocComponent {
 
     // 파일과 회사 이름 제출
     submit() {
-        console.log(this.company, this.files) // 회사 이름과 파일 목록 출력 (디버깅 용도)
+        // console.log(this.company, this.files) // 회사 이름과 파일 목록 출력 (디버깅 용도)
 
         // ChatService를 통해 파일과 회사 이름을 서버에 제출
         this.chatService.addDocs(this.company, this.files).subscribe((res) => {
